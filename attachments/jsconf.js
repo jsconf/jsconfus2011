@@ -2750,6 +2750,7 @@ app.showProposal = function () {
   })
   
 }
+var logged=false;
 
 Sammy.log = (function () {});
 $(function () { 
@@ -2761,8 +2762,9 @@ $(function () {
   })();
   
   $(".wagon").live("click", function (e) {
-    if($("#overlay")) { $("#overlay").remove(); } 
+    if($("#overlay")) { $("#overlay").remove(); $("#smallbox").remove();$("audio")[0].pause(); } 
     $("body").append("<div id=\"overlay\"></div>").append("<img src=\"images/modal.gif\" id=\"smallbox\" height=\"42\" width=\"421\"/>");
+    $("audio")[0].play();
     var wide = ($(window).width() / 2) - 210;
     var high = ($(window).height() / 2) - 21;			
   	var scrollTop = $(window).scrollTop();
@@ -2774,11 +2776,13 @@ $(function () {
   		  display: 'none',
         visibility: "visible"
     }).fadeIn();
-    if (typeof console == "object" && typeof console.log == "function") { 
+    if (typeof console == "object" && typeof console.log == "function" && !logged) { 
+      logged = true;
       console.log(Tea.decrypt("CJ+bgp8v0zElUZStlvYtCf2z1dORM224V8Ou/i+m8aXBrkgDpOSr8jv9EsaaUaDWZShNsB9y0b8prPkKtHgSmA==", "0xDEADBEEF"))
     }
   });
   $("#overlay").live("click", function(e) {
+    $("audio")[0].pause();
     $("#overlay").remove();
     $("#smallbox").remove();
   });
