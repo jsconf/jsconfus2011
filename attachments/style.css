@@ -3,14 +3,14 @@ html{padding:0px;margin:0px;}
 header{background:black url(images/mountains.gif) top left repeat-x;height:120px;margin:0px;padding:0px;display:block;overflow:hidden;}
 #trail{width:100%;height:58px;position:absolute;overflow:hidden;top:62px;}
 body{ height: 100%; padding:0px;margin:0px;background:url(images/background.gif) top left ;text-align:center; font-size: 12px; font-family:'SilkscreenNormal',Arial,sans-serif; }
-.hotel, .sponsor {font-family:'SilkscreenNormal',Arial,sans-serif;font-size:13px;text-align:center;margin-bottom:12px;}
-.hotel img, .sponsor img{display:block; margin: 0px auto;}
+.hotel, .sponsor_ad {font-family:'SilkscreenNormal',Arial,sans-serif;font-size:13px;text-align:center;margin-bottom:12px;}
+.hotel img, .sponsor_ad img{display:block; margin: 0px auto;}
 
-.hotel a, .sponsor a { color: black; text-decoration: none;}
-.hotel div,.sponsor div{padding:8px;margin:0px;background:#ccc;}
+.hotel a, .sponsor_ad a { color: black; text-decoration: none;}
+.hotel div,.sponsor_ad div{padding:8px;margin:0px;background:#ccc;}
 header h2{font-family:'SilkscreenNormal',Arial,sans-serif;letter-spacing:0;font-size:13px;color:white;position:absolute;top:94px;left:0px;right:0px;text-align:center;}
 .left{float:left;width:450px;}
-.sponsor div { margin-top: 12px;}
+.sponsor_ad div { margin-top: 12px;}
 
 .about { margin: 12px 0px;}
 .about img { float: left;}
