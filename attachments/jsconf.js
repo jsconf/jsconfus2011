@@ -2473,7 +2473,6 @@ app.sponsors = function () {
 }
 app.venue = function () {
   $("#main").html($("#venue").html());  
-  $(".map").html('<iframe width="640" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=422+Southwest+Broadway,+Portland,+OR+97205+(Hotel+Vintage+Plaza)&amp;daddr=1219+SW+Park+Ave,+Portland,+OR+97205&amp;hl=en&amp;geocode=FeGXtgIdoBKw-CHmf5tu4dPcUw%3BFRyGtgIdIQGw-CknJY2MGgqVVDExvnD2ykhJHA&amp;mra=prev&amp;dirflg=w&amp;sll=45.518602,-122.680893&amp;sspn=0.009367,0.016973&amp;ie=UTF8&amp;ll=45.518647,-122.680893&amp;spn=0.014343,0.027466&amp;z=15&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=422+Southwest+Broadway,+Portland,+OR+97205+(Hotel+Vintage+Plaza)&amp;daddr=1219+SW+Park+Ave,+Portland,+OR+97205&amp;hl=en&amp;geocode=FeGXtgIdoBKw-CHmf5tu4dPcUw%3BFRyGtgIdIQGw-CknJY2MGgqVVDExvnD2ykhJHA&amp;mra=prev&amp;dirflg=w&amp;sll=45.518602,-122.680893&amp;sspn=0.009367,0.016973&amp;ie=UTF8&amp;ll=45.518647,-122.680893&amp;spn=0.014343,0.027466&amp;z=15" style="color:#0000FF;text-align:left">View Larger Map</a></small>');
 }
 
 var shrinkHeader = function () {
