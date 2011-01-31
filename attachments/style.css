@@ -1,14 +1,17 @@
+
+
 a img { border: 0px;}
 html{padding:0px;margin:0px;}
 header{background:black url(images/mountains.gif) top left repeat-x;height:120px;margin:0px;padding:0px;display:block;overflow:hidden;}
 #trail{width:100%;height:58px;position:absolute;overflow:hidden;top:62px;}
 body{ height: 100%; padding:0px;margin:0px;background:url(images/background.gif) top left ;text-align:center; font-size: 12px; font-family:'SilkscreenNormal',Arial,sans-serif; }
-.hotel, .sponsor_ad {font-family:'SilkscreenNormal',Arial,sans-serif;font-size:13px;text-align:center;margin-bottom:12px;}
+
+.hotel, .sponsor_ad {font-size:13px;text-align:center;margin-bottom:12px;}
 .hotel img, .sponsor_ad img{display:block; margin: 0px auto;}
 
 .hotel a, .sponsor_ad a { color: black; text-decoration: none;}
 .hotel div,.sponsor_ad div{padding:8px;margin:0px;background:#ccc;}
-header h2{font-family:'SilkscreenNormal',Arial,sans-serif;letter-spacing:0;font-size:13px;color:white;position:absolute;top:94px;left:0px;right:0px;text-align:center;}
+header h2{letter-spacing:0;font-size:13px;color:white;position:absolute;top:94px;left:0px;right:0px;text-align:center;}
 .left{float:left;width:450px;}
 .sponsor_ad div { margin-top: 12px;}
 
@@ -18,14 +21,13 @@ header h2{font-family:'SilkscreenNormal',Arial,sans-serif;letter-spacing:0;font-
 .socialmedia { margin: 24px 0px; padding-left: 50px;}
 .register_now { display:block; margin: 0px 0px 12px 0px; text-align: center; border: 1px solid #1d911c; background:#00f900; width: 200px; font-weight: bold; -webkit-transition:background-color 0.5s linear; font-size:20px; text-decoration: none; padding: 12px 0px 12px 0px;}
 .register_now:hover, .register_now:visited:hover {background-color:#33f; color:white;}
-/*font-family:'SilkscreenNormal',Arial,sans-serif;}*/
 
 
 
 #overlay{  position:absolute; border:1px solid #ccc; background:#333;padding:5px; visibility: hidden;  top: 0;  left: 0;  right:0; bottom:0;opacity: 0.9; color:#fff; z-index: 500; }
 #smallbox { position: absolute; color:white; background: black; z-index:600;}
 .right{float:right;width:200px;}
-header h1{position:absolute;left:0px;right:0px;z-index:0;top:58px;color:white;font-size:35px;line-height:58px;padding:0px;text-align:center;color:#3333ff;margin:0px;font-family:'SilkscreenNormal',Arial,sans-serif;letter-spacing:0;}
+header h1{position:absolute;left:0px;right:0px;z-index:0;top:58px;color:white;font-size:35px;line-height:58px;padding:0px;text-align:center;color:#3333ff;margin:0px;letter-spacing:0;}
 .wagon{position:absolute;z-index:5;}
 navigation{display:block;width:100%;margin:20px auto;text-align:center;background:url(images/menu.gif) top right no-repeat;width:700px;height:42px;}
 navigation ul{list-style:none;margin:0px;background:url(images/menu.gif) top left no-repeat;padding:14px 9px 12px 9px;}
@@ -291,3 +293,5 @@ blockquote {
 div.talk-notes {
   padding-bottom:15px;
 }
+
+body.windowsneedsantialiasing #main {font-family:Helvetica,Arial,sans-serif;}
