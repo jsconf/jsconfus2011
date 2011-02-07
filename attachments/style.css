@@ -29,12 +29,13 @@ header h2{letter-spacing:0;font-size:13px;color:white;position:absolute;top:94px
 .right{float:right;width:200px;}
 header h1{position:absolute;left:0px;right:0px;z-index:0;top:58px;color:white;font-size:35px;line-height:58px;padding:0px;text-align:center;color:#3333ff;margin:0px;letter-spacing:0;}
 .wagon{position:absolute;z-index:5;}
-navigation{display:block;width:100%;margin:20px auto;text-align:center;background:url(images/menu.gif) top right no-repeat;width:700px;height:42px;}
-navigation ul{list-style:none;margin:0px;background:url(images/menu.gif) top left no-repeat;padding:14px 9px 12px 9px;}
-navigation li{display:inline;list-style:none;padding:0x;}
-navigation a,navigation a:visited{font-family:'SilkscreenNormal',Arial,sans-serif;letter-spacing:0;font-size:14px;line-height:14px;vertical-align:middle;color:white;padding:6px 14px 6px;text-decoration:none;-webkit-transition:background-color 0.5s linear;}
-navigation a:hover, navigation a:visited:hover{background-color:#33f; color:white;}
+nav{display:block;width:100%;margin:20px auto;text-align:center;background:url(images/menu.gif) top right no-repeat;width:700px;height:42px;}
+nav ul{list-style:none;margin:0px;background:url(images/menu.gif) top left no-repeat;padding:14px 9px 12px 9px;}
+nav li{display:inline;list-style:none;padding:0x;}
+nav a,nav a:visited{font-family:'SilkscreenNormal',Arial,sans-serif;letter-spacing:0;font-size:14px;line-height:14px;vertical-align:middle;color:white;padding:6px 14px 6px;text-decoration:none;-webkit-transition:background-color 0.5s linear;}
+nav a:hover, nav a:visited:hover{background-color:#33f; color:white;}
 #frame{background:url(images/mainbg.gif) top left repeat-y;margin:20px auto;text-align:left;width:700px;}
+
 #main{background:url(images/maintop.gif) top left no-repeat;padding:14px 14px 8px 14px;width:672px;}
 #footer{background:url(images/mainbottom.gif) top left no-repeat;height:6px;}
 #content { display: none; }
