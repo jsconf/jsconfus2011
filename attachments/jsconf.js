@@ -2875,7 +2875,7 @@ $(function () {
   if (BrowserDetect.OS == "Windows" || BrowserDetect.OS == "Win") {
     $("body").addClass("windowsneedsantialiasing");
   }
-  
+  $("#frame").css({"-webkit-transition":"all 100000.0s linear","-moz-transition":"all 100000.0s linear","-o-transition":"all 100000.0s linear","-transition":"all 100000.0s linear","-webkit-transform":"translate(0px, 1px)", "-moz-transform":"translate(0px, 1px)","-o-transform":"translate(0px, 1px)","transform":"translate(0px, 1px)"});
   var m = new Image(); m.src="images/modal.gif";
   var wagon = 0;
   (function (){
