@@ -2483,6 +2483,7 @@ var shrinkHeader = function () {
   // $('img#logo-image').addClass('logo-on-page');
 }
 
+/*
 app.proposal = function () {
   var twitterObj
     , githubObj
@@ -2676,6 +2677,7 @@ app.proposal = function () {
     }, 200);
   })
 }
+*/
 
 
 
@@ -2908,10 +2910,11 @@ $(function () {
     $("#overlay").remove();
     $("#smallbox").remove();
   });
+
   app.s = $.sammy(function () {
     // Call for proposals
     this.get("#/proposal/:id", app.showProposal);
-    this.get("#/proposal", app.proposal);
+    // this.get("#/proposal", app.proposal);
     this.get("#!/about", app.about);
     this.get("#!/sponsors", app.sponsors);
     this.get("#!/venue", app.venue);
@@ -2919,5 +2922,7 @@ $(function () {
     this.get('', app.index);
     this.get("#!/", app.index);
   })
+  if (window.location.pathname !== "/proposals")
   app.s.run();
+
 });

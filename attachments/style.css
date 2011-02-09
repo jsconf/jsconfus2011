@@ -26,7 +26,7 @@ header h2{letter-spacing:0;font-size:13px;color:white;position:absolute;top:94px
 
 #sold_out { display:block; margin: 0px 0px 12px 0px; text-align: center; border: 3px solid #f80000; background:black; width: 200px; font-weight: bold; font-size:20px; text-decoration: none; padding: 10px 0px 10px 0px; color:#f80000;}
 #main h2 { font-size: 20px;}
-
+#main li { padding: 4px 0px;}
 #overlay{  position:absolute; border:1px solid #ccc; background:#333;padding:5px; visibility: hidden;  top: 0;  left: 0;  right:0; bottom:0;opacity: 0.9; color:#fff; z-index: 500; }
 #smallbox { position: absolute; color:white; background: black; z-index:600;}
 .right{float:right;width:200px;}
