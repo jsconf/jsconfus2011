@@ -310,4 +310,6 @@ body.windowsneedsantialiasing #main {font-family:Helvetica,Arial,sans-serif;}
   -moz-transform: translate(0px, 1px);
   -o-transform: translate(0px, 1px);
   transform: translate(0px, 1px);
+  
+  -webkit-font-smoothing: none;
 }
