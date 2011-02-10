@@ -2473,6 +2473,7 @@ app.sponsors = function () {
 }
 app.venue = function () {
   $("#main").html($("#venue").html());  
+  $(".map").html('<iframe width="640" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=422+Southwest+Broadway,+Portland,+OR+97205+(Hotel+Vintage+Plaza)&amp;daddr=1219+SW+Park+Ave,+Portland,+OR+97205&amp;hl=en&amp;geocode=FeGXtgIdoBKw-CHmf5tu4dPcUw%3BFRyGtgIdIQGw-CknJY2MGgqVVDExvnD2ykhJHA&amp;mra=prev&amp;dirflg=w&amp;sll=45.518602,-122.680893&amp;sspn=0.009367,0.016973&amp;ie=UTF8&amp;ll=45.518647,-122.680893&amp;spn=0.014343,0.027466&amp;z=15&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=422+Southwest+Broadway,+Portland,+OR+97205+(Hotel+Vintage+Plaza)&amp;daddr=1219+SW+Park+Ave,+Portland,+OR+97205&amp;hl=en&amp;geocode=FeGXtgIdoBKw-CHmf5tu4dPcUw%3BFRyGtgIdIQGw-CknJY2MGgqVVDExvnD2ykhJHA&amp;mra=prev&amp;dirflg=w&amp;sll=45.518602,-122.680893&amp;sspn=0.009367,0.016973&amp;ie=UTF8&amp;ll=45.518647,-122.680893&amp;spn=0.014343,0.027466&amp;z=15" style="color:#0000FF;text-align:left">View Larger Map</a></small>');
 }
 
 var shrinkHeader = function () {
@@ -2483,7 +2484,6 @@ var shrinkHeader = function () {
   // $('img#logo-image').addClass('logo-on-page');
 }
 
-/*
 app.proposal = function () {
   var twitterObj
     , githubObj
@@ -2677,7 +2677,6 @@ app.proposal = function () {
     }, 200);
   })
 }
-*/
 
 
 
@@ -2877,19 +2876,15 @@ $(function () {
   if (BrowserDetect.OS == "Windows" || BrowserDetect.OS == "Win") {
     $("body").addClass("windowsneedsantialiasing");
   }
-  $("#frame").css({"-webkit-transition":"all 100000.0s linear","-moz-transition":"all 100000.0s linear","-o-transition":"all 100000.0s linear","-transition":"all 100000.0s linear","-webkit-transform":"translate(0px, 1px)", "-moz-transform":"translate(0px, 1px)","-o-transform":"translate(0px, 1px)","transform":"translate(0px, 1px)"});
-  var m = new Image,
-      trail = $("#trail"),
-      wagon = $("<img src=\"images/wagon.gif\" alt=\"It's an 8-bit wagon, motherfucker.\" class=\"wagon\"/>").appendTo(trail);
-
-  function westward() {
-    var l = trail.width();
-    wagon.css({ left: l }).animate({ left: -150 }, 20000, westward);
-  }
-
-  m.src="images/modal.gif";
-
-  wagon.live("click", function (e) {
+  
+  var m = new Image(); m.src="images/modal.gif";
+  var wagon = 0;
+  (function (){
+    var l = ($("#trail").width()), m = arguments.callee;
+    $("<img src=\"images/wagon.gif\" alt=\"It's an 8-bit wagon, motherfucker.\" class=\"wagon\"/>").appendTo("#trail").css({ left: l }).animate({ left: -150 }, 20000, m);
+  })();
+  
+  $(".wagon").live("click", function (e) {
     if($("#overlay")) { $("#overlay").remove(); $("#smallbox").remove();$("audio")[0].pause(); } 
     $("body").append("<div id=\"overlay\"></div>").append("<img src=\"images/modal.gif\" id=\"smallbox\" height=\"42\" width=\"421\"/>");
     $("audio")[0].play();
@@ -2901,10 +2896,9 @@ $(function () {
       left: wide + "px"
   	}).fadeIn();
     $("#overlay").css({
-      display: 'none',
-      visibility: "visible"
+  		  display: 'none',
+        visibility: "visible"
     }).fadeIn();
-
     if (typeof console == "object" && typeof console.log == "function" && !logged) { 
       logged = true;
       console.log(Tea.decrypt("CJ+bgp8v0zElUZStlvYtCf2z1dORM224V8Ou/i+m8aXBrkgDpOSr8jv9EsaaUaDWZShNsB9y0b8prPkKtHgSmA==", "0xDEADBEEF"))
@@ -2915,11 +2909,10 @@ $(function () {
     $("#overlay").remove();
     $("#smallbox").remove();
   });
-
   app.s = $.sammy(function () {
     // Call for proposals
     this.get("#/proposal/:id", app.showProposal);
-    // this.get("#/proposal", app.proposal);
+    this.get("#/proposal", app.proposal);
     this.get("#!/about", app.about);
     this.get("#!/sponsors", app.sponsors);
     this.get("#!/venue", app.venue);
@@ -2927,7 +2920,5 @@ $(function () {
     this.get('', app.index);
     this.get("#!/", app.index);
   })
-  if (window.location.pathname !== "/proposals")
   app.s.run();
-
 });
