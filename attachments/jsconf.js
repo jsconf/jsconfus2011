@@ -2878,14 +2878,18 @@ $(function () {
     $("body").addClass("windowsneedsantialiasing");
   }
   $("#frame").css({"-webkit-transition":"all 100000.0s linear","-moz-transition":"all 100000.0s linear","-o-transition":"all 100000.0s linear","-transition":"all 100000.0s linear","-webkit-transform":"translate(0px, 1px)", "-moz-transform":"translate(0px, 1px)","-o-transform":"translate(0px, 1px)","transform":"translate(0px, 1px)"});
-  var m = new Image(); m.src="images/modal.gif";
-  var wagon = 0;
-  (function (){
-    var l = ($("#trail").width()), m = arguments.callee;
-    $("<img src=\"images/wagon.gif\" alt=\"It's an 8-bit wagon, motherfucker.\" class=\"wagon\"/>").appendTo("#trail").css({ left: l }).animate({ left: -150 }, 20000, m);
-  })();
-  
-  $(".wagon").live("click", function (e) {
+  var m = new Image,
+      trail = $("#trail"),
+      wagon = $("<img src=\"images/wagon.gif\" alt=\"It's an 8-bit wagon, motherfucker.\" class=\"wagon\"/>").appendTo(trail);
+
+  function westward() {
+    var l = trail.width();
+    wagon.css({ left: l }).animate({ left: -150 }, 20000, westward);
+  }
+
+  m.src="images/modal.gif";
+
+  wagon.live("click", function (e) {
     if($("#overlay")) { $("#overlay").remove(); $("#smallbox").remove();$("audio")[0].pause(); } 
     $("body").append("<div id=\"overlay\"></div>").append("<img src=\"images/modal.gif\" id=\"smallbox\" height=\"42\" width=\"421\"/>");
     $("audio")[0].play();
@@ -2897,9 +2901,10 @@ $(function () {
       left: wide + "px"
   	}).fadeIn();
     $("#overlay").css({
-  		  display: 'none',
-        visibility: "visible"
+      display: 'none',
+      visibility: "visible"
     }).fadeIn();
+
     if (typeof console == "object" && typeof console.log == "function" && !logged) { 
       logged = true;
       console.log(Tea.decrypt("CJ+bgp8v0zElUZStlvYtCf2z1dORM224V8Ou/i+m8aXBrkgDpOSr8jv9EsaaUaDWZShNsB9y0b8prPkKtHgSmA==", "0xDEADBEEF"))
