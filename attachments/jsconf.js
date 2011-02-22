@@ -2610,7 +2610,7 @@ $(function () {
   if (BrowserDetect.OS == "Windows" || BrowserDetect.OS == "Win") {
     $("body").addClass("windowsneedsantialiasing");
   } else {
-    $("body").addClass("antiantialias");
+    // $("body").addClass("antiantialias");
   }
   
   
@@ -2656,6 +2656,6 @@ $(function () {
     this.get('', app.index);
     this.get("#!/", app.index);
   })
-  if (window.location.indexOf("#") >= 0)
+  if (window.location.pathname != "/proposals")
     app.s.run();
 });
