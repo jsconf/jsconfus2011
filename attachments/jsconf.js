@@ -2193,10 +2193,26 @@ var proposals =
       '</div>' +
     '</div>' +
   '</div>'
+var ads, len, showingAd;
+function spinTheWheel() {
+  try {
+    ads.hide();
+    // console.log(showingAd);
+    $(ads[showingAd]).show();
+    showingAd = (showingAd+1)%len;
+    setTimeout(spinTheWheel, 15000);
+  } catch (e) {}
+}
 
 var app = {};
 app.index = function () {
   $("#main").html($("#index").html());  
+  
+  ads = $("#main .se .sponsor_ad");
+  len = ads.length;
+  showingAd = Math.floor ( Math.random ( ) * len );
+  
+  spinTheWheel();
 };
 
 app.about = function () {
@@ -2609,8 +2625,8 @@ $(function () {
   if (BrowserDetect.OS == "Windows" || BrowserDetect.OS == "Win") {
     $("body").addClass("windowsneedsantialiasing");
   } else {
-    // $("body").addClass("antiantialias");
   }
+  
   
   
   var m = new Image(); m.src="images/modal.gif";
@@ -2623,6 +2639,9 @@ $(function () {
     wagon.css({ left: l }).animate({ left: -150 }, 20000, westward);
   }
   westward("Ho!");
+  
+  
+  
   wagon.click(function (e) {
     if($("#overlay")) { $("#overlay").remove(); $("#smallbox").remove();$("audio")[0].pause(); } 
     $("body").append("<div id=\"overlay\"></div>").append("<img src=\"images/modal.gif\" id=\"smallbox\" height=\"42\" width=\"421\"/>");
@@ -2647,7 +2666,7 @@ $(function () {
   app.s = $.sammy(function () {
     // Call for proposals
     this.get("#/proposal/:id", app.showProposal);
-    this.get("#/proposal", app.proposal);
+    // this.get("#/proposal", app.proposal);
     this.get("#!/about", app.about);
     this.get("#!/sponsors", app.sponsors);
     this.get("#!/venue", app.venue);

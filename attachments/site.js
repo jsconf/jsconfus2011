@@ -120,10 +120,26 @@ var proposals =
       '</div>' +
     '</div>' +
   '</div>'
+var ads, len, showingAd;
+function spinTheWheel() {
+  try {
+    ads.hide();
+    // console.log(showingAd);
+    $(ads[showingAd]).show();
+    showingAd = (showingAd+1)%len;
+    setTimeout(spinTheWheel, 15000);
+  } catch (e) {}
+}
 
 var app = {};
 app.index = function () {
   $("#main").html($("#index").html());  
+  
+  ads = $("#main .se .sponsor_ad");
+  len = ads.length;
+  showingAd = Math.floor ( Math.random ( ) * len );
+  
+  spinTheWheel();
 };
 
 app.about = function () {
@@ -539,16 +555,6 @@ $(function () {
   }
   
   
-  var ads = $("#main .se .sponsor_ad");
-  var len = ads.length, showingAd = Math.floor ( Math.random ( ) * len );
-  
-  function spinTheWheel() {
-    ads.hide();
-    ads[showingAd].show();
-    showingAd = (showingAd+1)%len;
-  }
-  spinTheWheel();
-  setInterval(spinTheWheel, 15000);
   
   var m = new Image(); m.src="images/modal.gif";
   
