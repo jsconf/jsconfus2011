@@ -127,7 +127,7 @@ function spinTheWheel() {
     // console.log(showingAd);
     $(ads[showingAd]).show();
     showingAd = (showingAd+1)%len;
-    setTimeout(spinTheWheel, 15000);
+    setTimeout(spinTheWheel, 5000);
   } catch (e) {}
 }
 
