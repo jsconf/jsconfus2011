@@ -2207,7 +2207,6 @@ app.sponsors = function () {
 }
 app.venue = function () {
   $("#main").html($("#venue").html());  
-  $(".map").html('<iframe width="640" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=422+Southwest+Broadway,+Portland,+OR+97205+(Hotel+Vintage+Plaza)&amp;daddr=1219+SW+Park+Ave,+Portland,+OR+97205&amp;hl=en&amp;geocode=FeGXtgIdoBKw-CHmf5tu4dPcUw%3BFRyGtgIdIQGw-CknJY2MGgqVVDExvnD2ykhJHA&amp;mra=prev&amp;dirflg=w&amp;sll=45.518602,-122.680893&amp;sspn=0.009367,0.016973&amp;ie=UTF8&amp;ll=45.518647,-122.680893&amp;spn=0.014343,0.027466&amp;z=15&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=422+Southwest+Broadway,+Portland,+OR+97205+(Hotel+Vintage+Plaza)&amp;daddr=1219+SW+Park+Ave,+Portland,+OR+97205&amp;hl=en&amp;geocode=FeGXtgIdoBKw-CHmf5tu4dPcUw%3BFRyGtgIdIQGw-CknJY2MGgqVVDExvnD2ykhJHA&amp;mra=prev&amp;dirflg=w&amp;sll=45.518602,-122.680893&amp;sspn=0.009367,0.016973&amp;ie=UTF8&amp;ll=45.518647,-122.680893&amp;spn=0.014343,0.027466&amp;z=15" style="color:#0000FF;text-align:left">View Larger Map</a></small>');
 }
 
 var shrinkHeader = function () {
@@ -2217,200 +2216,200 @@ var shrinkHeader = function () {
   // $('div#info').addClass('info-on-page');
   // $('img#logo-image').addClass('logo-on-page');
 }
-// 
-// app.proposal = function () {
-//   var twitterObj
-//     , githubObj
-//     ;
-//   window.initializeGoogle = function () {}
-//   $.getScript('http://maps.google.com/maps/api/js?v=3.1&sensor=false&callback=initializeGoogle');
-//   
-//   // Change formatting
-//   shrinkHeader();
-//   
-//   // Add proposal box
-//   $('div#main').html(proposals);
-//   $('input#speaker-github-input').focus();
-//   
-//   var checkinputs = function () {
-//     var inputSelectors = 
-//       [ ['input#speaker-location-input', 'location']
-//       , ['input#speaker-name-input', 'full name']
-//       , ['input#speaker-email-input', 'email']
-//       , ['input#proposal-title-input', 'talk title']
-//       , ['textarea#proposal-description', 'talk description']
-//       // , ['input#speaker-twitter-input', 'twitter']
-//       // , ['input#speaker-github-input', 'github']
-//       ]
-//       ;
-//     var errors = [];
-//     for (var i=0;i<inputSelectors.length;i++) {
-//       if ($(inputSelectors[i][0]).val() === '') {
-//         errors.push(inputSelectors[i][1])
-//       }
-//     }
-//     if (!$('input.license').attr('checked')) errors.push('agreement')
-//     return errors;
-//   }
-//   
-//   // Preview update handlers
-//   var updateName = function () {
-//     $('div.proposal-name').text($('input#speaker-name-input').val())
-//     // $('div.proposal-avatar').html(
-//     //   '<img class="proposal-avatar" src="'+'http://www.gravatar.com/avatar/'+
-//     //   hex_md5($('input#speaker-email-input').val())+'?s=75'+'"></img>'
-//     // );
-//   }
-//   $('input#speaker-name-input').keyup(updateName);
-//   $('input#speaker-email-input').change(updateName);
-//   
-//   $('input#proposal-title-input').keyup(function () {
-//     $('div.proposal-short').text($(this).val())
-//   })
-//   $('textarea#proposal-description').keyup(function () {
-//     $('div.proposal-desc').html($(this).val())
-//     if ($('span#submit-button').length === 0) {
-//       $('<span id="submit-button" class="submit-button">Submit</span>')
-//       .click(function () {
-//         var errors = checkinputs();
-//         if (errors.length > 0) return alert('Required fields are empty: '+errors.join(', '));
-//         
-//         var submission = 
-//           { twitter: twitterObj || $('input#speaker-twitter-input').val()
-//           , github:  githubObj  || $('input#speaker-github-input').val()
-//           , location: $('input#speaker-location-input').val()
-//           , name: $('input#speaker-name-input').val()
-//           , email: $('input#speaker-email-input').val()
-//           , title: $('input#proposal-title-input').val()
-//           , description: $('textarea#proposal-description').val()
-//           , notes: $('textarea#proposal-notes').val()
-//           , created: new Date()
-//           , type: 'proposal'
-//           }
-//         request({url:'/api', type:'POST', data:submission}, function (err, resp) {
-//           if (err) throw err;
-//           if (!resp.id) throw resp.id;
-//           window.location.hash = '#/proposal/'+resp.id;
-//         })
-//       })
-//       .hover(function () {
-//         var errors = checkinputs();
-//         if (errors.length > 0) $('div#submit-error').text('required fields are empty: '+errors.join(', '))
-//         else $('span#submit-button').addClass('hover');
-//       }, function () {
-//         $('span#submit-button').removeClass('hover');
-//         $('div#submit-error').text('')
-//       })
-//       .appendTo('div#submit-container')
-//       ;
-//     }
-//     
-//     
-//   })
-//   
-//   $('input#speaker-twitter-input').keyup(function () {
-//     var t = $(this).val()
-//       , self = this
-//       ;
-//     if (t[0] !== '@') {
-//       t = '@'+t;
-//       $(this).val(t);
-//     }
-//     setTimeout(function () {
-//       if (t !== $(self).val()) return;
-//       t = t.replace('@','')
-//       if (t.length === 0) return;
-//       if ($(self).val() === $('div.speaker-twitter-name').find('a').text()) return;
-//       request({url:'http://twitter.com/users/show/'+t+'.json?count=10', dataType:'jsonp'}, 
-//         function (err, resp) {
-//           if ('@'+t !== $(self).val()) return;
-//           if (resp.name) {
-//             $('div.speaker-twitter-name').html('<a href="http://twitter.com/'+t+'">@'+t+'</a>')
-//             if ($('input#speaker-name-input').val().length === 0 ) {
-//               $('input#speaker-name-input').val(resp.name).change();
-//             }
-//           }
-//           if (resp.profile_image_url) {
-//             $('div.speaker-twitter-picture').html(
-//               '<img class="twitter-picture" src="'+resp.profile_image_url+'" width="40"></img>'
-//             )
-//           }
-//           if (resp.description) $('div.speaker-twitter-description').text(resp.description);
-//           if (resp.location && $('input#speaker-location-input').val().length === 0) {
-//             $('input#speaker-location-input').val(resp.location).change();
-//           } 
-//           if (resp.followers_count) $('div.speaker-twitter-followcount').text(resp.followers_count+' followers')
-//           twitterObj = resp;
-//       })
-//     }, 200)
-//   })
-//   
-//   $('input#speaker-location-input').change(function () {
-//     var self = this;
-//     if (window.google.maps.Map) {
-//       var address = $(self).val();
-//       var geocoder = new google.maps.Geocoder();
-//       geocoder.geocode( { 'address': address}, function(results, status) {
-//         if (status == google.maps.GeocoderStatus.OK) {            
-//           var map = new google.maps.Map(document.getElementById("location-map"), 
-//             { zoom: 12
-//             , center: results[0].geometry.location
-//             , mapTypeId: google.maps.MapTypeId.ROADMAP
-//             , disableDefaultUI: true
-//             , scrollwheel: false
-//             }
-//           );
-//           var marker = new google.maps.Marker({
-//               map: map, 
-//               position: results[0].geometry.location
-//           });
-//         } else {
-//           if (typeof console == "object" && typeof console.log == "function") { 
-//          console.log("Geocode was not successful for the following reason: " + status);
-// }
-//         }
-//       });
-//     }
-//   })
-//   
-//   $('input#speaker-github-input').keyup(function () {
-//     var t = $(this).val()
-//       , self = this
-//       ;
-//     setTimeout(function () {
-//       if (t !== $(self).val()) return;
-//       if (t.length === 0) return;
-//       if ('github.com/'+$(self).val() === $('div.speaker-github-url').find('a').text()) return;
-//       request({url:'http://github.com/api/v2/json/user/show/'+t, dataType:'jsonp'}, function (err, resp) {
-//         if (t !== $(self).val() || !resp.user) return;
-//         $('div.speaker-github-url').html('<a href="http://github.com/'+t+'">github.com/'+t+'</a>')
-//         if (resp.user.name) {
-//           $('input#speaker-name-input').val(resp.user.name).change();
-//         }
-//         
-//         if (resp.user.gravatar_id) {
-//           $('div.speaker-github-picture').html(
-//             '<img class="github-picture" src="http://www.gravatar.com/avatar/'+resp.user.gravatar_id+'" width="40"></img>'
-//           )
-//         } 
-//         if (resp.user.location) {
-//           $('input#speaker-location-input').val(resp.user.location).change();
-//         } 
-//         if (resp.user.followers_count) {
-//           $('div.speaker-github-followcount').text(resp.user.followers_count+' followers')
-//         } 
-//         if (resp.user.public_repo_count) {
-//           $('div.speaker-github-repos').text(resp.user.public_repo_count+' repos')
-//         }
-//         
-//         if (resp.user.email) {
-//           $('input#speaker-email-input').val(resp.user.email).change();
-//         }
-//         githubObj = resp;
-//       })
-//     }, 200);
-//   })
-// }
+
+app.proposal = function () {
+  var twitterObj
+    , githubObj
+    ;
+  window.initializeGoogle = function () {}
+  $.getScript('http://maps.google.com/maps/api/js?v=3.1&sensor=false&callback=initializeGoogle');
+  
+  // Change formatting
+  shrinkHeader();
+  
+  // Add proposal box
+  $('div#main').html(proposals);
+  $('input#speaker-github-input').focus();
+  
+  var checkinputs = function () {
+    var inputSelectors = 
+      [ ['input#speaker-location-input', 'location']
+      , ['input#speaker-name-input', 'full name']
+      , ['input#speaker-email-input', 'email']
+      , ['input#proposal-title-input', 'talk title']
+      , ['textarea#proposal-description', 'talk description']
+      // , ['input#speaker-twitter-input', 'twitter']
+      // , ['input#speaker-github-input', 'github']
+      ]
+      ;
+    var errors = [];
+    for (var i=0;i<inputSelectors.length;i++) {
+      if ($(inputSelectors[i][0]).val() === '') {
+        errors.push(inputSelectors[i][1])
+      }
+    }
+    if (!$('input.license').attr('checked')) errors.push('agreement')
+    return errors;
+  }
+  
+  // Preview update handlers
+  var updateName = function () {
+    $('div.proposal-name').text($('input#speaker-name-input').val())
+    // $('div.proposal-avatar').html(
+    //   '<img class="proposal-avatar" src="'+'http://www.gravatar.com/avatar/'+
+    //   hex_md5($('input#speaker-email-input').val())+'?s=75'+'"></img>'
+    // );
+  }
+  $('input#speaker-name-input').keyup(updateName);
+  $('input#speaker-email-input').change(updateName);
+  
+  $('input#proposal-title-input').keyup(function () {
+    $('div.proposal-short').text($(this).val())
+  })
+  $('textarea#proposal-description').keyup(function () {
+    $('div.proposal-desc').html($(this).val())
+    if ($('span#submit-button').length === 0) {
+      $('<span id="submit-button" class="submit-button">Submit</span>')
+      .click(function () {
+        var errors = checkinputs();
+        if (errors.length > 0) return alert('Required fields are empty: '+errors.join(', '));
+        
+        var submission = 
+          { twitter: twitterObj || $('input#speaker-twitter-input').val()
+          , github:  githubObj  || $('input#speaker-github-input').val()
+          , location: $('input#speaker-location-input').val()
+          , name: $('input#speaker-name-input').val()
+          , email: $('input#speaker-email-input').val()
+          , title: $('input#proposal-title-input').val()
+          , description: $('textarea#proposal-description').val()
+          , notes: $('textarea#proposal-notes').val()
+          , created: new Date()
+          , type: 'proposal'
+          }
+        request({url:'/api', type:'POST', data:submission}, function (err, resp) {
+          if (err) throw err;
+          if (!resp.id) throw resp.id;
+          window.location.hash = '#/proposal/'+resp.id;
+        })
+      })
+      .hover(function () {
+        var errors = checkinputs();
+        if (errors.length > 0) $('div#submit-error').text('required fields are empty: '+errors.join(', '))
+        else $('span#submit-button').addClass('hover');
+      }, function () {
+        $('span#submit-button').removeClass('hover');
+        $('div#submit-error').text('')
+      })
+      .appendTo('div#submit-container')
+      ;
+    }
+    
+    
+  })
+  
+  $('input#speaker-twitter-input').keyup(function () {
+    var t = $(this).val()
+      , self = this
+      ;
+    if (t[0] !== '@') {
+      t = '@'+t;
+      $(this).val(t);
+    }
+    setTimeout(function () {
+      if (t !== $(self).val()) return;
+      t = t.replace('@','')
+      if (t.length === 0) return;
+      if ($(self).val() === $('div.speaker-twitter-name').find('a').text()) return;
+      request({url:'http://twitter.com/users/show/'+t+'.json?count=10', dataType:'jsonp'}, 
+        function (err, resp) {
+          if ('@'+t !== $(self).val()) return;
+          if (resp.name) {
+            $('div.speaker-twitter-name').html('<a href="http://twitter.com/'+t+'">@'+t+'</a>')
+            if ($('input#speaker-name-input').val().length === 0 ) {
+              $('input#speaker-name-input').val(resp.name).change();
+            }
+          }
+          if (resp.profile_image_url) {
+            $('div.speaker-twitter-picture').html(
+              '<img class="twitter-picture" src="'+resp.profile_image_url+'" width="40"></img>'
+            )
+          }
+          if (resp.description) $('div.speaker-twitter-description').text(resp.description);
+          if (resp.location && $('input#speaker-location-input').val().length === 0) {
+            $('input#speaker-location-input').val(resp.location).change();
+          } 
+          if (resp.followers_count) $('div.speaker-twitter-followcount').text(resp.followers_count+' followers')
+          twitterObj = resp;
+      })
+    }, 200)
+  })
+  
+  $('input#speaker-location-input').change(function () {
+    var self = this;
+    if (window.google.maps.Map) {
+      var address = $(self).val();
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {            
+          var map = new google.maps.Map(document.getElementById("location-map"), 
+            { zoom: 12
+            , center: results[0].geometry.location
+            , mapTypeId: google.maps.MapTypeId.ROADMAP
+            , disableDefaultUI: true
+            , scrollwheel: false
+            }
+          );
+          var marker = new google.maps.Marker({
+              map: map, 
+              position: results[0].geometry.location
+          });
+        } else {
+          if (typeof console == "object" && typeof console.log == "function") { 
+         console.log("Geocode was not successful for the following reason: " + status);
+}
+        }
+      });
+    }
+  })
+  
+  $('input#speaker-github-input').keyup(function () {
+    var t = $(this).val()
+      , self = this
+      ;
+    setTimeout(function () {
+      if (t !== $(self).val()) return;
+      if (t.length === 0) return;
+      if ('github.com/'+$(self).val() === $('div.speaker-github-url').find('a').text()) return;
+      request({url:'http://github.com/api/v2/json/user/show/'+t, dataType:'jsonp'}, function (err, resp) {
+        if (t !== $(self).val() || !resp.user) return;
+        $('div.speaker-github-url').html('<a href="http://github.com/'+t+'">github.com/'+t+'</a>')
+        if (resp.user.name) {
+          $('input#speaker-name-input').val(resp.user.name).change();
+        }
+        
+        if (resp.user.gravatar_id) {
+          $('div.speaker-github-picture').html(
+            '<img class="github-picture" src="http://www.gravatar.com/avatar/'+resp.user.gravatar_id+'" width="40"></img>'
+          )
+        } 
+        if (resp.user.location) {
+          $('input#speaker-location-input').val(resp.user.location).change();
+        } 
+        if (resp.user.followers_count) {
+          $('div.speaker-github-followcount').text(resp.user.followers_count+' followers')
+        } 
+        if (resp.user.public_repo_count) {
+          $('div.speaker-github-repos').text(resp.user.public_repo_count+' repos')
+        }
+        
+        if (resp.user.email) {
+          $('input#speaker-email-input').val(resp.user.email).change();
+        }
+        githubObj = resp;
+      })
+    }, 200);
+  })
+}
 
 
 
@@ -2624,7 +2623,7 @@ $(function () {
     wagon.css({ left: l }).animate({ left: -150 }, 20000, westward);
   }
   westward("Ho!");
-  wagon.live("click", function (e) {
+  wagon.click(function (e) {
     if($("#overlay")) { $("#overlay").remove(); $("#smallbox").remove();$("audio")[0].pause(); } 
     $("body").append("<div id=\"overlay\"></div>").append("<img src=\"images/modal.gif\" id=\"smallbox\" height=\"42\" width=\"421\"/>");
     $("audio")[0].play();
@@ -2648,7 +2647,7 @@ $(function () {
   app.s = $.sammy(function () {
     // Call for proposals
     this.get("#/proposal/:id", app.showProposal);
-    // this.get("#/proposal", app.proposal);
+    this.get("#/proposal", app.proposal);
     this.get("#!/about", app.about);
     this.get("#!/sponsors", app.sponsors);
     this.get("#!/venue", app.venue);
