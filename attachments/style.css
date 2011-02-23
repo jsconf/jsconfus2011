@@ -300,7 +300,7 @@ div.talk-notes {
 
 body.windowsneedsantialiasing #main {font-family:Helvetica,Arial,sans-serif;}
 
-
+#main p, #main li { font-family: verdana, sans-serif;}
 .antiantialias {
   -webkit-transition: all 100000.0s linear;
   -moz-transition: all 100000.0s linear;
