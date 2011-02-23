@@ -540,7 +540,7 @@ $(function () {
   
   
   var ads = $("#main .se .sponsor_ad");
-  var len, showingAd = ads.length, Math.floor ( Math.random ( ) * len );
+  var len = ads.length, showingAd = Math.floor ( Math.random ( ) * len );
   
   function spinTheWheel() {
     ads.hide();
