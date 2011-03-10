@@ -142,6 +142,27 @@ app.index = function () {
   spinTheWheel();
 };
 
+app.speakers = function () {
+  $("#main").html($("#speakers").html());
+  if (ClosePixelate.supportsCanvas)  {
+    $(".speaker img").each(function () {
+      try {
+          var clean = $(this);
+          var pixelate = clean.clone().prependTo(clean.parent()).addClass("pixelated");
+          pixelate[0].closePixelate( [ { resolution: 6 }]);
+          clean.addClass("hide");
+      } catch (e) {}
+    });
+    $(".speaker").hover(function () {
+      $(".pixelated", this).addClass("hide")
+      $("img", this).removeClass("hide");
+    }, function () {
+      $(".pixelated", this).removeClass("hide");
+      $("img", this).addClass("hide");
+
+    })
+  }
+}
 app.about = function () {
   $("#main").html($("#about").html());  
 }
@@ -595,6 +616,7 @@ $(function () {
     this.get("#/proposal/:id", app.showProposal);
     // this.get("#/proposal", app.proposal);
     this.get("#!/about", app.about);
+    this.get("#!/speakers", app.speakers);
     this.get("#!/sponsors", app.sponsors);
     this.get("#!/venue", app.venue);
     // Index of all databases
