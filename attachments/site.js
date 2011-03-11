@@ -400,7 +400,7 @@ app.showProposal = function () {
     $('div#main').html(
       '<div class="talk">' +
         '<div class="talk-header">' +
-          '<div class="talk-title">' + resp.title + '</div>' +
+          '<div class="talk-title">' + resp.title.replace("<", "&lt;").replace(">", "&gt;") + '</div>' +
           '<div class="talk-speaker">' +
             // '<img width=30 src="http://www.gravatar.com/avatar/' + hex_md5(resp.email) + '"></img>' +
             '<span class="talk-speaker-name">' + resp.name + '</span>' +
