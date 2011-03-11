@@ -2430,15 +2430,26 @@ app.index = function () {
 app.speakers = function () {
   $("#main").html($("#speakers").html());
   if (ClosePixelate.supportsCanvas)  {
-    $(".speaker img").each(function () {
-      try {
-          var clean = $(this);
-          var pixelate = clean.clone().prependTo(clean.parent()).addClass("pixelated");
-          pixelate[0].closePixelate( [ { resolution: 6 }]);
-          clean.addClass("hide");
-      } catch (e) {}
-    });
-    $(".speaker").hover(function () {
+    $(".speaker").each(function () {
+      if ($(this).hasClass("duo"))  {
+        // handle duo
+        try {
+            var clean = $(".clearfix", this);
+            var pixelate = clean.clone().prependTo(this).addClass("pixelated");
+            $("img", pixelate).each(function () {
+              this.closePixelate( [ { resolution: 6 }]);
+            });
+            $("img", clean).addClass("hide");
+        } catch (e) {}
+      } else {
+        try {
+            var clean = $("img", this);
+            var pixelate = clean.clone().prependTo(this).addClass("pixelated");
+            pixelate[0].closePixelate( [ { resolution: 6 }]);
+            clean.addClass("hide");
+        } catch (e) {}
+      }
+    }).hover(function () {
       $(".pixelated", this).addClass("hide")
       $("img", this).removeClass("hide");
     }, function () {

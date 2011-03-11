@@ -323,6 +323,9 @@ body.windowsneedsantialiasing #main {font-family:Helvetica,Arial,sans-serif;}
 .speaker img, .speaker canvas { float: left; height: 100px; width: 100px;}
 .speaker .title { margin-left: 125px; font-size: 22px; margin-bottom: 6px;}
 .speaker .proposal { margin-left: 125px; font-size: 16px;}
-.speaker.duo img { margin-right: 25px;}
+.speaker.duo img, .speaker.duo canvas { margin-right: 25px;}
 .speaker.duo .name, .speaker.duo .title, .speaker.duo .proposal { margin-left: 0px;}
 .speaker.duo .name { margin-top: 6px;}
+
+
+p.desc { margin: 12px 0px; }
