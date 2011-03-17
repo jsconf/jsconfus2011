@@ -177,8 +177,14 @@ app.speakers = function () {
 app.about = function () {
   $("#main").html($("#about").html());  
 }
+
 app.sponsors = function () {
   $("#main").html($("#sponsors").html());  
+  if (this.params['splat']) {
+    $("body").scrollTop($("#"+this.params['splat']).offset().top-12);
+  } else {
+    $("body").scrollTop(0);
+  }
 }
 app.venue = function () {
   $("#main").html($("#venue").html());  
@@ -629,6 +635,7 @@ $(function () {
     this.get("#!/about", app.about);
     this.get("#!/speakers", app.speakers);
     this.get("#!/sponsors", app.sponsors);
+    this.get(/\#!\/sponsors\/(.*)/ , app.sponsors);
     this.get("#!/venue", app.venue);
     // Index of all databases
     this.get('', app.index);
