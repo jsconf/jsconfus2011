@@ -68,7 +68,8 @@ function randomizeOrder(container) {
 
 var app = {};
 app.index = function () {
-    $("#main").html($("#index").html());  
+    $(".content").hide();
+    $("#index").show();
     randomizeOrder("#main .fs");
     randomizeOrder("#main .se");
   // ads = $("#main .se .sponsor_ad");
@@ -78,9 +79,12 @@ app.index = function () {
   // spinTheWheel();
 };
 
+var pixelated = false;
 app.speakers = function () {
-  $("#main").html($("#speakers").html());
-  if (ClosePixelate.supportsCanvas)  {
+  $(".content").hide();
+  $("#speakers").show();
+  if (!pixelated && ClosePixelate.supportsCanvas)  {
+    pixelated = true;
     $(".speaker").each(function () {
       if ($(this).hasClass("duo"))  {
         // handle duo
@@ -111,11 +115,13 @@ app.speakers = function () {
   }
 }
 app.about = function () {
-  $("#main").html($("#about").html());  
+  $(".content").hide();
+  $("#about").show();  
 }
 
 app.sponsors = function () {
-  $("#main").html($("#sponsors").html());  
+  $(".content").hide();
+  $("#sponsors").show();  
   if (this.params['splat']) {
     $(document).scrollTop($("#"+this.params['splat']).offset().top-12);
   } else {
@@ -123,7 +129,8 @@ app.sponsors = function () {
   }
 }
 app.venue = function () {
-  $("#main").html($("#venue").html());  
+  $(".content").hide();
+  $("#venue").show();  
 }
 
 var shrinkHeader = function () {
@@ -140,13 +147,14 @@ var shrinkHeader = function () {
 
   
 app.showProposal = function () {
-  $('div#main').html('');
+  $(".content").hide();
+  $('#proposal').html('');
   request({url:'/api/'+this.params.id}, function (err, resp) {
     var twitter = (resp.twitter ? resp.twitter : {})
       , github = (resp.github && resp.github.user) ? resp.github.user : {}
       ;
     
-    $('div#main').html(
+    $('#proposal').html(
       '<div class="talk">' +
         '<div class="talk-header">' +
           '<div class="talk-title">' + resp.title.replace("<", "&lt;").replace(">", "&gt;") + '</div>' +
@@ -192,7 +200,7 @@ app.showProposal = function () {
           '</div>' +
         '</div>' +
       '</div>'
-    )
+    ).show();
     $('blockquote.talk-escaped-desc').text(resp.description);
     $('span.render-button')
     .hover(function () {
@@ -334,6 +342,14 @@ $(function () {
     $("body").addClass("windowsneedsantialiasing");
   } else {
   }
+  
+  //  load articles
+  $.getJSON("_view/articles?descending=true", function (data) {
+    articles = [];
+    $.each(data.rows, function () {
+      articles.push(this.value);
+    });
+  });
   
   
   
