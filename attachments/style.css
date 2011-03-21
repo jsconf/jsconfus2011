@@ -43,19 +43,9 @@ nav a:hover, nav a:visited:hover{background-color:#33f; color:white;}
 #footer{background:url(images/mainbottom.gif) top left no-repeat;height:6px;}
 #content { display: none; }
 em { font-weight: 700; font-style: normal;}
-.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
-.clearfix{display:inline-block;}
 h3 { margin-bottom: 4px;}
 p { margin: 0px 0px 1em;}
 a, a:visited { color:#3333ff}
-/* for IE/Mac */
-
-/*#midi{ height:1px; width:1px; visibility:hidden; }*/
-
-div.spacer {
-  clear:both;
-}
-
 /* Call for proposals */
 
 div#proposals {
@@ -298,7 +288,7 @@ div.talk-notes {
   padding-bottom:15px;
 }
 
-.hide { display: none; }
+.hide, .clearfix.hide { display: none; visibility:hidden;}
 
 body.windowsneedsantialiasing #main {font-family:Helvetica,Arial,sans-serif;}
 
@@ -330,13 +320,25 @@ body.windowsneedsantialiasing #main {font-family:Helvetica,Arial,sans-serif;}
 
 p.desc { margin: 12px 0px; }
 
-.fs .sponsor_ad {
-margin-bottom: 18px
+.sponsor_ad {
+margin-bottom: 20px
 }
 
-.se { height: 220px;}
+/*.se { height: 220px;}*/
 
 
 .sponsor { margin-bottom: 24px;}
 
 .sponsor .logo { text-align: center; margin-bottom: 12px;}
+
+
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+
+.clearfix {display: inline-block;}  /* for IE/Mac */
