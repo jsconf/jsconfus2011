@@ -29,6 +29,7 @@ header h2{letter-spacing:0;font-size:13px;color:white;position:absolute;top:94px
 #main li { padding: 4px 0px;}
 #overlay{  position:absolute; border:1px solid #ccc; background:#333;padding:5px; visibility: hidden;  top: 0;  left: 0;  right:0; bottom:0;opacity: 0.9; color:#fff; z-index: 500; }
 #smallbox { position: absolute; color:white; background: black; z-index:600;}
+.alright{ float:right;}
 .right{float:right;width:200px;}
 header h1{position:absolute;left:0px;right:0px;z-index:0;top:58px;color:white;font-size:35px;line-height:58px;padding:0px;text-align:center;color:#3333ff;margin:0px;letter-spacing:0;}
 .wagon{position:absolute;z-index:5;}
@@ -342,3 +343,5 @@ margin-bottom: 20px
     }
 
 .clearfix {display: inline-block;}  /* for IE/Mac */
+
+.sub { margin: 4px 0px;}

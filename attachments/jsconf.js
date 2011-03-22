@@ -2417,6 +2417,10 @@ app.venue = function () {
   $(".content").hide();
   $("#venue").show();  
 }
+app.news = function () {
+  $(".content").hide();
+  $("#news").show();  
+}
 
 var shrinkHeader = function () {
   $('div#logo').removeClass('logo').addClass('logo-on-page');
@@ -2429,8 +2433,19 @@ var shrinkHeader = function () {
 
 
 
+app.showArticle = function () {
+  $(".content").hide();
+  $('#article').html('').show();
+  request({url:'/api/'+this.params.id}, function (err, resp) {
+    var d = new Date(resp.created);
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth()+1;
+    var curr_year = d.getFullYear();
+    $("#article").html("<h3>"+resp.title+"</h3><div class='sub'>Posted: "+([curr_month, curr_date, curr_year].join("/"))+"</sub>"+resp.description);
+  });
+};
 
-  
+
 app.showProposal = function () {
   $(".content").hide();
   $('#proposal').html('');
@@ -2630,12 +2645,14 @@ $(function () {
   
   //  load articles
   $.getJSON("_view/articles?descending=true", function (data) {
-    articles = [];
-    $.each(data.rows, function () {
-      articles.push(this.value);
+    $.each(data.rows, function (idx) {
+      var a = this.value;
+      if (idx < 3) {
+        $(".top_news").append("<div class='article'><h3>"+a.title+"</h3>"+a.description+"</div>");
+      }
+      $(".news_roll").append("<li><a href='#!/articles/"+a._id+"'>"+a.title+"</a></li>");
     });
   });
-  
   
   
   var m = new Image(); m.src="images/modal.gif";
@@ -2681,7 +2698,11 @@ $(function () {
     this.get("#!/sponsors", app.sponsors);
     this.get(/\#!\/sponsors\/(.*)/ , app.sponsors);
     this.get("#!/venue", app.venue);
+    this.get("#!/news", app.news);
+    this.get("#!/articles/:id", app.showArticle);
 
+    this.get("#%21/articles/:id", app.showArticle);
+    this.get("#%21/news", app.news);
     this.get("#%21/about", app.about);
     this.get("#%21/speakers", app.speakers);
     this.get("#%21/sponsors", app.sponsors);
