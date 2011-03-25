@@ -370,16 +370,17 @@ $(function () {
   });
   
   
+  
   var m = new Image(); m.src="images/modal.gif";
   
   $("#frame").css({"-webkit-transition":"all 100000.0s linear","-moz-transition":"all 100000.0s linear","-o-transition":"all 100000.0s linear","-transition":"all 100000.0s linear","-webkit-transform":"translate(0px, 1px)", "-moz-transform":"translate(0px, 1px)","-o-transform":"translate(0px, 1px)","transform":"translate(0px, 1px)"});
-  var trail = $("#trail"),
-      wagon = $("<img src=\"images/wagon.gif\" alt=\"It's an 8-bit wagon, motherfucker.\" class=\"wagon\"/>").appendTo(trail);
-  function westward() {
-    var l = trail.width();
-    wagon.css({ left: l }).animate({ left: -150 }, 20000, westward);
-  }
-  westward("Ho!");
+    var trail = $("#trail"),
+        wagon = $("<img src=\"images/wagon.gif\" alt=\"It's an 8-bit wagon, motherfucker.\" class=\"wagon\"/>").appendTo(trail);
+    function westward() {
+      var l = trail.width();
+      wagon.css({ left: l }).animate({ left: -150 }, 20000, westward);
+    }
+    westward("Ho!");
   
   
   
