@@ -145,6 +145,16 @@ app.about = function () {
 app.schedule = function () {
   $(".content").hide();
   $("#schedule").show();  
+  var that = this;
+  // allow time for schedule to load.
+  setTimeout( function () {
+    if (this.params['splat']) {
+      $(document).scrollTop($("#"+that.params['splat']).offset().top-12);
+    } else {
+      $(document).scrollTop(0);
+    }
+  }, 500);
+  
 }
 
 app.sponsors = function () {
@@ -188,7 +198,7 @@ function render_track_b(tb, day, idx, extraclass) {
   if (!tb) { return ""; }
   var ec = (extraclass ? " "+extraclass : "");
   if (tb.title)
-    return "<div class='tb locked"+ec+"'><div class='title'>"+tb.title+"</div><div class='name'>"+tb.name+"</div></div>";
+    return "<div class='tb locked"+ec+"' id='"+day+"-"+idx+"'><div class='title'>"+tb.title+"</div><div class='name'>"+tb.name+"</div></div>";
   else
     return "<div class='tb open"+ec+"'><a class='register' href='http://scheduler.jsconf.us/"+day+"/"+idx+"'>Sign up for this slot</div></div>";
 }
@@ -459,6 +469,7 @@ $(function () {
     this.get("#!/schedule", app.schedule);
     this.get("#!/sponsors", app.sponsors);
     this.get(/\#!\/sponsors\/(.*)/ , app.sponsors);
+    this.get(/\#!\/schedule\/(.*)/ , app.schedule);
     this.get("#!/venue", app.venue);
     this.get("#!/news", app.news);
     this.get("#!/articles/:id", app.showArticle);
@@ -469,6 +480,7 @@ $(function () {
     this.get("#%21/speakers", app.speakers);
     this.get("#%21/sponsors", app.sponsors);
     this.get(/\#%21\/sponsors\/(.*)/ , app.sponsors);
+    this.get(/\#%21\/schedule\/(.*)/ , app.schedule);
     this.get("#%21/venue", app.venue);
 
     // Index of all databases
