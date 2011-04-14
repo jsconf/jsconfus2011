@@ -345,3 +345,19 @@ margin-bottom: 20px
 .clearfix {display: inline-block;}  /* for IE/Mac */
 
 .sub { margin: 4px 0px;}
+
+.time { width: 75px; padding:4px; }
+.track_a, .track_b { width: 298px;}
+.scheduleheader th { font-weight: bold; background: #333; color: white; padding:4px; }
+table.schedule td { border-bottom: 1px solid #eee; vertical-align: top; }
+table.schedule .track_a {padding: 4px;}
+table.schedule { cell-spacing:0px; cell-padding:0px; border-collapse: collapse;}
+
+table.schedule .title { font-weight: bold; }
+
+.track_b .tb { height: 60px; padding: 4px; border-left: 1px solid #eee}
+.track_b .tb.top { border-bottom: 1px solid #eee; }
+tr.break td { height: 75px; background: #efefef; padding:4px} 
+
+.party { font-size: 125%; padding: 4px 8px 8px; margin: 12px 0px; background: #efefef; border-top: 4px solid #ff40ff;}
+.party p { margin: 0px; padding: 0px;}

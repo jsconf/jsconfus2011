@@ -45,12 +45,12 @@
     <nav> 
       <ul> 
         <li><a href="#!/">Home</a></li> 
+        <li><a href="#!/schedule">Schedule</a></li> 
         <li><a href="#!/news">News</a></li>
         <li><a href="#!/speakers">Speakers</a></li> 
         <li><a href="#!/sponsors">Sponsors</a></li> 
         <li><a href="#!/venue">Venue</a></li> 
-        <li><a target="_blank" href="http://jsconf.blip.tv/">Videos</a></li> 
-        <!-- <li><a href="/schedule.html">Schedule</a></li> --> 
+
         <li><a href="#!/about">About</a></li> 
       </ul> 
     </nav> 
@@ -87,6 +87,7 @@
               </div> 
             </div> 
             <div class="se"> 
+              <div class="sponsor_ad"><a href="#!/sponsors/shopify"><img src="images/shopify.png" alt="Shopify" width="200" height="55"/></a></div>
               <div class="sponsor_ad"><a href="#!/sponsors/uber"><img src="images/uber.png" alt="Uber" width="100" height="130"/></a></div>
               <div class="sponsor_ad">
                 <a href="#!/sponsors/microsoft"><img src="images/ie_200.png" alt="Windows Internet Explorer" width="200" height="128"/></a>
@@ -143,6 +144,21 @@
             </div> 
           </div> 
         </div> 
+
+        <div id="schedule" class="content">
+          <h3>The JSConf US 2011 Schedule</h3>
+          <h3>Sunday May 1, 2011</h3>
+          <div class='party'>
+            <p>Zappos' Beer Tasting Pirate Party 8:00PM - 12:00AM <a href="http://2011.jsconf.us/#!/articles/f572bdb75ea222a3ada0febe2fc57510">Details</a></p>
+          </div>
+          <div id="jsconfschedule">
+          </div>
+          <h3>Wednesday May 4, 2011</h3>
+          <div class='party'>
+            <p>The Bloomberg Brunch at the Hangover Cafe 9:00AM - 2:00PM <a href="http://2011.jsconf.us/#!/articles/6def9573da91fadd73e53f01cc9c1d29">Details</a></p>
+          </div>
+        </div>
+
         <div id="news" class="content">
           <a class="alright" href="rss.xml"><img src="images/rss_icon.gif" alt="rss"/></a>
           <h3>The Latest News for JSConf, always hot and fresh!</h3>
@@ -349,6 +365,17 @@
               <div class="logo"><a href="http://www.uber.com"><img src="images/uber.png" alt="Uber" width="100" height="130"/></a></div>
               <p>Request a car by telling <a href="http://www.uber.com">Uber</a> where you are. Text us your address, or use our iPhone or Android apps to set your pickup location on a map.   Uber will send the nearest driver to pick you up, and text message you an estimated arrival time. Cars usually arrive within 5-10 minutes. Your licensed professional driver will park curbside in a sleek black car. Uber will text you again when the car arrives. Hop in the car, tell the driver your destination and you'll be on your way.</p><p>Sponsoring transportation for Tuesday night.</p>
             </div>
+            <div class="sponsor" id="shopify">
+              <div class="logo"><a href="http://www.shopify.com"><img src="images/shopify.png" alt="Shopify" width="200" height="55"/></a></div>
+              <p><a href="http://shopify.com">Shopify</a> &lt;3 Javascript developers.</p>
+              <p>Not only are we the easiest way to sell stuff online via a beautiful, customizable shop, but we're also the easiest e-commerce platform to integrate with and build stuff on top of.</p>
+              <p>Shopify prides itself on concentrating on the 80% of what every shop owner needs, and does a really, really good job of it.</p>
+              <p>Here's where you come in:  there's still 20% left that some merchants need - services like product recommendation engines, in-browser chat, SalesForce and Facebook integration, on demand tshirt printing, an Arduino thing that lights up every time a sale happens, etc. The list is endless. Make us a thing that lets you take a picture of a thing, add it to your store, and post on Craigslist. Awesome.</p>
+              <p>Last year we watched about $100 million dollars of stuff sold on Shopify. There is a ton of room here and we want to help you make cool stuff for our merchants and get into <a href="http://apps.shopify.com">http://apps.shopify.com</a></p>
+              <p>Check out <a href="http://shopify.com/partners">http://shopify.com/partners</a> - we have a Node.js adapter and a JSON API.</p>
+              <p>Love,<br/>
+              <a href="http://www.twitter.com/shopifyapi">@shopifyapi</a></p><p>Sponsoring the conference wifi.</p>
+              </div>
           <div class="sponsor" id="microsoft">
             <div class="logo"><a href="http://www.beautyoftheweb.com/dev/unplugged"><img src="images/ie_200.png" alt="Windows Internet Explorer" width="200" height="128"/></a></div>
             <p>Internet Explorer 9 delivers a more beautiful web by embracing HTML5 and using hardware acceleration to bring it to life on the PC and soon Windows Phone.  IE9 delivers on the promise of using the web to create true applications through its Pinned Sites integration with Windows 7. And IE9 is committed to a more interoperable web, so developers can write the same mark-up once and have it work across browsers.</p><p>The IE team loves HTML5 so much, we launched <a href="http://www.beautyoftheweb.com/dev/unplugged">Dev Unplugged</a>: a contest to push the limits of modern browsers without the use of plug-ins.  Developers can choose to either create a Gaming app or a Music app for the chance to win over $40k in prizes.  The Grand Prize is $9k in cash and a fully-loaded trip to attend the Future of Web Apps in Las Vegas!  The submission deadline is May 8th, so don’t wait to show us what you can do!</p><p>Sponsoring your daily rations of food on the JSConf Trail (hint: you do not have to hunt for them).</p>
@@ -492,6 +519,8 @@
     
     <div id="midi"><audio loop><source src="http://jsconf.s3.amazonaws.com/midi.mp3"/><source src="http://jsconf.s3.amazonaws.com/midi.ogg"/></audio></div> 
     
+    <script language="javascript" type="text/javascript" src="jsconf.min.js"></script> 
+    
     <script type="text/javascript"> 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-1264213-15']);
@@ -502,11 +531,7 @@
       ga.src = 'http://www.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-    var addthis_config = {"data_track_clickback":true};
     </script> 
-    <script language="javascript" type="text/javascript" src="jsconf.min.js"></script> 
-    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=jsconf"></script> 
-    
  
     
   </body> 
