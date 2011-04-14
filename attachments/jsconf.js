@@ -2461,14 +2461,18 @@ function loadSchedule(data) {
   var str = "<h3>Monday May 2, 2011</h3><table id='mondayschedule' class='schedule'><tr class='scheduleheader'>              <th class='time'>Time</th>              <th class='track_a'>Track A</th>              <th class='track_b'>Track B</th>            </tr>";
   str += daySchedule(data, "monday");
   str += "</table>";
-  str += "<p>The 8-bit Adventure at Candy Lounge and Ground Kontrol: 8:00PM - 2:00AM<a href=''>Details</a></p>";
+  str += "<div class='party'><p>The HP WebOS 8-bit Revenge Party with Candy and Arcade Games: 8:00PM - 2:00AM <a href='http://2011.jsconf.us/#!/articles/f572bdb75ea222a3ada0febe2fe9352a'>Details</a></p></div>";
   str += "<h3>Tuesday May 3, 2011</h3><table id='tuesdayschedule' class='schedule'><tr class='scheduleheader'>              <th class='time'>Time</th>              <th class='track_a'>Track A</th>              <th class='track_b'>Track B</th>            </tr>";
   str += daySchedule(data, "tuesday");
   str += "</table>";
-  str += "<p>Rock 'n Roll Closing Party: 8:00PM - 2:00AM<a href=''>Details</a></p>";
+  str += "<div class='party'><p>Yammer's Dropping the Closing Hammer Party: 8:00PM - 2:00AM <a href='http://2011.jsconf.us/#!/articles/14b8994ba86e576ba174a53513461474'>Details</a></p></div>";
   $("#jsconfschedule").html(str);
+  
+  $("a.register").click(function (e) {
+    e.stopPropagation(); e.preventDefault();
+    
+  });
 }
-var b;
 
 function daySchedule(data,day) {
   var ta_length = data.track_a[day].length;
@@ -2738,8 +2742,6 @@ $(function () {
     app.s.run();
   setTimeout(function () {
     var m = new Image(); m.src="images/modal.gif";
-    
-    $("#frame").css({"-webkit-transition":"all 100000.0s linear","-moz-transition":"all 100000.0s linear","-o-transition":"all 100000.0s linear","-transition":"all 100000.0s linear","-webkit-transform":"translate(0px, 1px)", "-moz-transform":"translate(0px, 1px)","-o-transform":"translate(0px, 1px)","transform":"translate(0px, 1px)"});
     var trail = $("#trail"),
     wagon = $("<img src=\"images/wagon.gif\" alt=\"It's an 8-bit wagon, motherfucker.\" class=\"wagon\"/>").appendTo(trail);
     function westward() {

@@ -355,6 +355,9 @@ table.schedule { cell-spacing:0px; cell-padding:0px; border-collapse: collapse;}
 
 table.schedule .title { font-weight: bold; }
 
-.track_b .tb { height: 75px; padding: 4px; border-left: 1px solid #eee}
+.track_b .tb { height: 60px; padding: 4px; border-left: 1px solid #eee}
 .track_b .tb.top { border-bottom: 1px solid #eee; }
 tr.break td { height: 75px; background: #efefef; padding:4px} 
+
+.party { font-size: 125%; padding: 4px 8px 8px; margin: 12px 0px; background: #efefef; border-top: 4px solid #ff40ff;}
+.party p { margin: 0px; padding: 0px;}
