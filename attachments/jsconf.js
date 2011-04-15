@@ -2485,7 +2485,7 @@ function render_track_b(tb, day, idx, extraclass) {
   if (tb.title)
     return "<div class='tb locked"+ec+"' id='"+day+"-"+idx+"'><div class='title'>"+tb.title+"</div><div class='name'>"+tb.name+"</div></div>";
   else
-    return "<div class='tb open"+ec+"'><a class='register' href='http://scheduler.jsconf.us/"+day+"/"+idx+"'>Sign up for this slot</div></div>";
+    return "<div class='tb open"+ec+"'><a class='register' href='http://scheduler.jsconf.us/schedule/"+day+"/"+idx+"'>Sign up for this slot</div></div>";
 }
 
 
@@ -2500,10 +2500,6 @@ function loadSchedule(data) {
   str += "<div class='party'><p>Yammer's Dropping the Closing Hammer Party: 8:00PM - 2:00AM <a href='http://2011.jsconf.us/#!/articles/14b8994ba86e576ba174a53513461474'>Details</a></p></div>";
   $("#jsconfschedule").html(str);
   
-  $("a.register").click(function (e) {
-    e.stopPropagation(); e.preventDefault();
-    
-  });
 }
 
 function daySchedule(data,day) {
@@ -2525,7 +2521,7 @@ function daySchedule(data,day) {
       var track_b_2_idx  = track_b_idx++;
       var track_b_1 = tb[track_b_1_idx];
       var track_b_2 = tb[track_b_2_idx];
-      data.push("<tr><td class='time'>"+pretty_time(track_a.begin)+"</td><td class='track_a'><div class='title'><a href='"+track_a.href+"'>"+track_a.title+"</a></div><div class='name'>"+track_a.name+"</div></td><td class='track_b'>"+render_track_b(track_b_1, day, track_b_1_idx, "top")+render_track_b(track_b_2, day, track_b_1_idx)+"</td></tr>");
+      data.push("<tr><td class='time'>"+pretty_time(track_a.begin)+"</td><td class='track_a'><div class='title'><a href='"+track_a.href+"'>"+track_a.title+"</a></div><div class='name'>"+track_a.name+"</div></td><td class='track_b'>"+render_track_b(track_b_1, day, track_b_1_idx, "top")+render_track_b(track_b_2, day, track_b_2_idx)+"</td></tr>");
     }
   }
   return data.join("");
