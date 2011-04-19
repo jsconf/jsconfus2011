@@ -2305,6 +2305,24 @@ $.expr[":"].exactly = function(obj, index, meta, stack){
   return ($(obj).text() == meta[3])
 }
 
+
+function dysentery (e) {
+  if($("#overlay")) { $("#overlay").remove(); $("#smallbox").remove();$("audio")[0].pause(); } 
+  $("body").append("<div id=\"overlay\"></div>").append("<img src=\"images/modal.gif\" id=\"smallbox\" height=\"42\" width=\"421\"/>");
+  $("audio")[0].play();
+  var wide = ($(window).width() / 2) - 210;
+  var high = ($(window).height() / 2) - 21;			
+  var scrollTop = $(window).scrollTop();
+  $("#smallbox").css({
+    top: high + scrollTop + "px",
+    left: wide + "px"
+  }).fadeIn();
+  $("#overlay").css({
+    display: 'none',
+    visibility: "visible"
+  }).fadeIn();
+}
+
 var param = function( a ) {
   // Query param builder from jQuery, had to copy out to remove conversion of spaces to +
   // This is important when converting datastructures to querystrings to send to CouchDB.
@@ -2364,6 +2382,11 @@ app.index = function () {
   // spinTheWheel();
 };
 
+
+app.troll= function () {
+  dysentery();
+}
+
 var pixelated = false;
 app.speakers = function () {
   $(".content").hide();
@@ -2407,6 +2430,16 @@ app.about = function () {
 app.schedule = function () {
   $(".content").hide();
   $("#schedule").show();  
+  var that = this;
+  // allow time for schedule to load.
+  setTimeout( function () {
+    if (this.params['splat']) {
+      $(document).scrollTop($("#"+that.params['splat']).offset().top-12);
+    } else {
+      $(document).scrollTop(0);
+    }
+  }, 500);
+  
 }
 
 app.sponsors = function () {
@@ -2450,14 +2483,13 @@ function render_track_b(tb, day, idx, extraclass) {
   if (!tb) { return ""; }
   var ec = (extraclass ? " "+extraclass : "");
   if (tb.title)
-    return "<div class='tb locked"+ec+"'><div class='title'>"+tb.title+"</div><div class='name'>"+tb.name+"</div></div>";
+    return "<div class='tb locked"+ec+"' id='"+day+"-"+idx+"'><div class='title'>"+tb.title+"</div><div class='name'>"+tb.name+"</div></div>";
   else
-    return "<div class='tb open"+ec+"'><a class='register' href='#"+day+"-"+idx+"'>Sign up for this slot</div></div>";
+    return "<div class='tb open"+ec+"'><a class='register' href='http://scheduler.jsconf.us/schedule/"+day+"/"+idx+"'>Sign up for this slot</div></div>";
 }
 
 
 function loadSchedule(data) {
-
   var str = "<h3>Monday May 2, 2011</h3><table id='mondayschedule' class='schedule'><tr class='scheduleheader'>              <th class='time'>Time</th>              <th class='track_a'>Track A</th>              <th class='track_b'>Track B</th>            </tr>";
   str += daySchedule(data, "monday");
   str += "</table>";
@@ -2468,10 +2500,6 @@ function loadSchedule(data) {
   str += "<div class='party'><p>Yammer's Dropping the Closing Hammer Party: 8:00PM - 2:00AM <a href='http://2011.jsconf.us/#!/articles/14b8994ba86e576ba174a53513461474'>Details</a></p></div>";
   $("#jsconfschedule").html(str);
   
-  $("a.register").click(function (e) {
-    e.stopPropagation(); e.preventDefault();
-    
-  });
 }
 
 function daySchedule(data,day) {
@@ -2493,7 +2521,7 @@ function daySchedule(data,day) {
       var track_b_2_idx  = track_b_idx++;
       var track_b_1 = tb[track_b_1_idx];
       var track_b_2 = tb[track_b_2_idx];
-      data.push("<tr><td class='time'>"+pretty_time(track_a.begin)+"</td><td class='track_a'><div class='title'>"+track_a.title+"</div><div class='name'>"+track_a.name+"</div></td><td class='track_b'>"+render_track_b(track_b_1, day, track_b_1_idx, "top")+render_track_b(track_b_2, day, track_b_1_idx)+"</td></tr>");
+      data.push("<tr><td class='time'>"+pretty_time(track_a.begin)+"</td><td class='track_a'><div class='title'><a href='"+track_a.href+"'>"+track_a.title+"</a></div><div class='name'>"+track_a.name+"</div></td><td class='track_b'>"+render_track_b(track_b_1, day, track_b_1_idx, "top")+render_track_b(track_b_2, day, track_b_2_idx)+"</td></tr>");
     }
   }
   return data.join("");
@@ -2722,16 +2750,18 @@ $(function () {
     this.get("#!/schedule", app.schedule);
     this.get("#!/sponsors", app.sponsors);
     this.get(/\#!\/sponsors\/(.*)/ , app.sponsors);
+    this.get(/\#!\/schedule\/(.*)/ , app.schedule);
     this.get("#!/venue", app.venue);
     this.get("#!/news", app.news);
     this.get("#!/articles/:id", app.showArticle);
-
+    this.get("#/dysentery", app.troll);
     this.get("#%21/articles/:id", app.showArticle);
     this.get("#%21/news", app.news);
     this.get("#%21/about", app.about);
     this.get("#%21/speakers", app.speakers);
     this.get("#%21/sponsors", app.sponsors);
     this.get(/\#%21\/sponsors\/(.*)/ , app.sponsors);
+    this.get(/\#%21\/schedule\/(.*)/ , app.schedule);
     this.get("#%21/venue", app.venue);
 
     // Index of all databases
@@ -2752,22 +2782,7 @@ $(function () {
   
   
   
-    wagon.click(function (e) {
-      if($("#overlay")) { $("#overlay").remove(); $("#smallbox").remove();$("audio")[0].pause(); } 
-      $("body").append("<div id=\"overlay\"></div>").append("<img src=\"images/modal.gif\" id=\"smallbox\" height=\"42\" width=\"421\"/>");
-      $("audio")[0].play();
-      var wide = ($(window).width() / 2) - 210;
-      var high = ($(window).height() / 2) - 21;			
-      var scrollTop = $(window).scrollTop();
-      $("#smallbox").css({
-        top: high + scrollTop + "px",
-        left: wide + "px"
-      }).fadeIn();
-      $("#overlay").css({
-        display: 'none',
-        visibility: "visible"
-      }).fadeIn();
-    });
+    wagon.click(dysentery);
     $("#overlay").live("click", function(e) {
       $("audio")[0].pause();
       $("#overlay").remove();
@@ -2787,7 +2802,7 @@ $(function () {
     });
   });
 
-  $.getJSON("http://127.0.0.1:3000/index.json?callback=?" , function (d) {
+  $.getJSON("http://scheduler.jsconf.us/index.json?callback=?" , function (d) {
     loadSchedule(d);
   });
   
