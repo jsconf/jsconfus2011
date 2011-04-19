@@ -2433,7 +2433,7 @@ app.schedule = function () {
   var that = this;
   // allow time for schedule to load.
   setTimeout( function () {
-    if (this.params['splat']) {
+    if (that.params['splat']) {
       $(document).scrollTop($("#"+that.params['splat']).offset().top-12);
     } else {
       $(document).scrollTop(0);
