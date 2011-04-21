@@ -200,7 +200,7 @@ function render_track_b(tb, day, idx, extraclass) {
   if (tb.title)
     return "<div class='tb locked"+ec+"' id='"+day+"-"+idx+"'><div class='title'>"+tb.title+"</div><div class='name'>"+tb.name+"</div></div>";
   else
-    return "<div class='tb open"+ec+"'><a class='register' href='http://scheduler.jsconf.us/schedule/"+day+"/"+idx+"'>Sign up for this slot</div></div>";
+    return "<div class='tb open"+ec+"'><a class='register' href='http://scheduler.jsconf.us/schedule/"+day+"/"+idx+"'>Sign up for this slot</a></div></div>";
 }
 
 
@@ -208,7 +208,7 @@ function loadSchedule(data) {
   var str = "<h3>Monday May 2, 2011</h3><table id='mondayschedule' class='schedule'><tr class='scheduleheader'>              <th class='time'>Time</th>              <th class='track_a'>Track A</th>              <th class='track_b'>Track B</th>            </tr>";
   str += daySchedule(data, "monday");
   str += "</table>";
-  str += "<div class='party'><p>The HP WebOS 8-bit Revenge Party with Candy and Arcade Games: 8:00PM - 2:00AM <a href='http://2011.jsconf.us/#!/articles/f572bdb75ea222a3ada0febe2fe9352a'>Details</a></p></div>";
+  str += "<div class='party'><p>The HP WebOS 8-bit Revenge Party at Candy Lounge and Ground Kontrol: 8:00PM - 2:00AM <a href='http://2011.jsconf.us/#!/articles/f572bdb75ea222a3ada0febe2fe9352a'>Details</a></p></div>";
   str += "<h3>Tuesday May 3, 2011</h3><table id='tuesdayschedule' class='schedule'><tr class='scheduleheader'>              <th class='time'>Time</th>              <th class='track_a'>Track A</th>              <th class='track_b'>Track B</th>            </tr>";
   str += daySchedule(data, "tuesday");
   str += "</table>";
