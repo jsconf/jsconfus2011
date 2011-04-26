@@ -2455,6 +2455,11 @@ app.venue = function () {
   $(".content").hide();
   $("#venue").show();  
 }
+
+app.sotrack = function () {
+  $(".content").hide();
+  $("#sotrack").show();  
+}
 app.news = function () {
   $(".content").hide();
   $("#news").show();  
@@ -2749,6 +2754,7 @@ $(function () {
     this.get("#!/speakers", app.speakers);
     this.get("#!/schedule", app.schedule);
     this.get("#!/sponsors", app.sponsors);
+    this.get("#!/sotrack", app.sotrack);
     this.get(/\#!\/sponsors\/(.*)/ , app.sponsors);
     this.get(/\#!\/schedule\/(.*)/ , app.schedule);
     this.get("#!/venue", app.venue);
@@ -2760,6 +2766,7 @@ $(function () {
     this.get("#%21/about", app.about);
     this.get("#%21/speakers", app.speakers);
     this.get("#%21/sponsors", app.sponsors);
+    this.get("#%21/sotrack", app.sotrack);
     this.get(/\#%21\/sponsors\/(.*)/ , app.sponsors);
     this.get(/\#%21\/schedule\/(.*)/ , app.schedule);
     this.get("#%21/venue", app.venue);
