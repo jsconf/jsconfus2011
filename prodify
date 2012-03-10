@@ -1,3 +1,0 @@
-#!/bin/bash
-cat attachments/close-pixelate.js attachments/jquery-1.4.4.min.js attachments/sammy/sammy.js attachments/md5.js attachments/site.js > attachments/jsconf.js
-java -jar ~/js/compiler.jar --js attachments/jsconf.js --js_output_file attachments/jsconf.min.js 

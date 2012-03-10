@@ -1,2 +1,0 @@
-#!/bin/bash
-cat jquery-1.4.4.min.js sammy/sammy.js md5.js tea.js site.js > production.js
