@@ -1,0 +1,363 @@
+
+
+a img { border: 0px;}
+html{padding:0px;margin:0px;}
+header{background:black url(images/mountains.gif) top left repeat-x;height:120px;margin:0px;padding:0px;display:block;overflow:hidden;}
+#trail{width:100%;height:58px;position:absolute;overflow:hidden;top:62px;}
+body{ height: 100%; padding:0px;margin:0px;background:url(images/background.gif) top left ;text-align:center; font-size: 13px; font-family:'SilkscreenNormal',Arial,sans-serif; -webkit-text-size-adjust:100%}
+
+.hotel, .sponsor_ad {font-size:13px;text-align:center;margin-bottom:12px;}
+.hotel img, .sponsor_ad img{display:block; margin: 0px auto;}
+
+.hotel a, .sponsor_ad a { color: black; text-decoration: none;}
+.hotel div,.sponsor_ad div{padding:8px;margin:0px;background:#ccc;}
+header h2{letter-spacing:0;font-size:13px;color:white;position:absolute;top:94px;left:0px;right:0px;text-align:center;}
+.left{float:left;width:450px;}
+.sponsor_ad div { margin-top: 12px;}
+
+.about { margin: 12px 0px;}
+.about img { float: left;}
+.about h4, .about p { margin-left: 175px;}
+.socialmedia { margin: 24px 0px; padding-left: 50px;}
+/*
+.register_now { display:block; margin: 0px 0px 12px 0px; text-align: center; border: 1px solid #1d911c; background:#00f900; width: 200px; font-weight: bold; -webkit-transition:background-color 0.5s linear; font-size:20px; text-decoration: none; padding: 12px 0px 12px 0px;}
+.register_now:hover, .register_now:visited:hover {background-color:#33f; color:white;}
+*/
+
+#sold_out { display:block; margin: 0px 0px 12px 0px; text-align: center; border: 3px solid #f80000; background:black; width: 200px; font-weight: bold; font-size:20px; text-decoration: none; padding: 10px 0px 10px 0px; color:#f80000;}
+#main h2 { font-size: 20px;}
+#main li { padding: 4px 0px;}
+#overlay{  position:absolute; border:1px solid #ccc; background:#333;padding:5px; visibility: hidden;  top: 0;  left: 0;  right:0; bottom:0;opacity: 0.9; color:#fff; z-index: 500; }
+#smallbox { position: absolute; color:white; background: black; z-index:600;}
+.alright{ float:right;}
+.right{float:right;width:200px;}
+header h1{position:absolute;left:0px;right:0px;z-index:0;top:58px;color:white;font-size:35px;line-height:58px;padding:0px;text-align:center;color:#3333ff;margin:0px;letter-spacing:0;}
+.wagon{position:absolute;z-index:5;}
+nav{display:block;width:100%;margin:20px auto;text-align:center;background:url(images/menu.gif) top right no-repeat;width:700px;height:42px;}
+nav ul{list-style:none;margin:0px;background:url(images/menu.gif) top left no-repeat;padding:14px 9px 12px 9px;}
+nav li{display:inline;list-style:none;padding:0x;}
+nav a,nav a:visited{font-family:'SilkscreenNormal',Arial,sans-serif;letter-spacing:0;font-size:14px;line-height:14px;vertical-align:middle;color:white;padding:6px 14px 6px;text-decoration:none;-webkit-transition:background-color 0.5s linear;}
+nav a:hover, nav a:visited:hover{background-color:#33f; color:white;}
+#frame{background:url(images/mainbg.gif) top left repeat-y;margin:20px auto;text-align:left;width:700px;}
+
+#main{background:url(images/maintop.gif) top left no-repeat;padding:14px 14px 8px 14px;width:672px;}
+#footer{background:url(images/mainbottom.gif) top left no-repeat;height:6px;}
+#content { display: none; }
+em { font-weight: 700; font-style: normal;}
+h3 { margin-bottom: 4px;}
+p { margin: 0px 0px 1em;}
+a, a:visited { color:#3333ff}
+/* Call for proposals */
+
+div#proposals {
+  width:100%;
+  font-size:15px;
+}
+div#proposal-editor {
+  float:left;
+  padding-left:2%;
+  width:46%;
+}
+div#proposal-preview {
+  float:left;
+  width:48%%;
+  padding-right:2%;
+  padding-left:2%;
+  padding-top:20px;
+}
+
+div#proposal-editor div {
+}
+
+div#proposal-info {
+  text-align:center;
+  padding-bottom:15px;
+}
+div#proposal-info p {
+  text-align:left;
+}
+
+div#proposals input, div#proposals textarea {
+  font-size:15px;
+  width:98%;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color:#E0E0E0;
+}
+
+div#proposals textarea {
+  height:200px;
+}
+
+div#proposals textarea#proposal-notes {
+  height:200px;
+}
+
+div#proposals  div.license {
+  width:100%;
+  font-size:15px;
+  margin-top:15px;
+  margin-bottom:15px;
+}
+div#proposals input.license {
+  float:left;
+  width:20px;
+}
+
+/*Preview*/
+
+div.speaker- {
+  width:100%;
+}
+div.proposal-name {
+  float:left;
+}
+div.proposal-avatar {
+  float:right;
+}
+img.proposal-avatar {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  text-align:right;
+}
+
+div.proposal-name {
+  font-size:18px;
+  font-weight:bold;
+  padding-top:5px;
+  padding-left:0px;
+  
+}
+
+div.proposal-short {
+  font-size:18px;
+  font-weight: bold;
+  padding-top:5px;
+/*  padding-left:10px;*/
+}
+
+div.proposal-desc {
+  font-size:14px;
+  padding-top:18px;
+}
+
+div#speaker-info {
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+img.twitter-picture {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/*Twitter*/
+
+div.speaker-twitter-info {
+  width:100%;
+  margin-bottom: 12px;
+}
+div.speaker-twitter-name {
+  padding-left:48px;
+/*  float:left;*/
+}
+div.speaker-twitter-picture {
+  float:left;
+}
+div.speaker-twitter-description {
+  font-size:15px;
+  padding-left: 48px;
+}
+div.speaker-twitter-followcount {
+  font-size:15px;
+  padding-left:48px;
+}
+
+/*GitHub*/
+div.speaker-github-info {
+  width:100%;
+  margin-bottom: 12px;
+  
+}
+div.speaker-github-url {
+  padding-left:48px;
+/*  float:left;*/
+}
+div.speaker-github-picture {
+  float:left;
+}
+div.speaker-github-followcount {
+/*  float:left;*/
+  font-size:16px;
+  padding-left:48px;
+}
+div.speaker-github-repos {
+/*  float:left;*/
+  font-size:16px;
+  padding-left:48px;
+}
+
+div#location-map {
+  height: 150px;
+  width: 100%;
+  margin-top:10px;
+  margin-bottom:20px;
+}
+img.github-picture {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+div.submit {
+  width:100%;
+  text-align:center;
+  margin: 24px 0px;
+}
+
+body { padding-bottom: 250px;}
+span.submit-button {
+  background-color: #ececec; 
+  padding: 8px 12px 2px 12px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  border: 2px solid;
+  border-color:#BEBEBE;
+  cursor:pointer;
+  color:#5E5E5E;
+}
+span#submit-button.hover {
+  background: #fcde33;
+  border-color: #DCDCDC;
+}
+div#submit-error {
+  color:#FF7D40;
+  font-size:15px;
+  padding-top:24px;
+}
+
+/*Show Proposal*/
+
+div.talk {
+  padding-left:10%;
+  padding-right:10%;
+  font-size:20px;
+}
+div.talk-header {
+  text-align:center;
+}
+div.talk-speaker {
+  width:100%;
+}
+div.talk-title {
+  font-size:45px;
+}
+span.talk-speaker-name {
+  font-size:16px;
+  padding-bottom:5px;
+}
+div.talk-speaker img {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin-right:5px;
+}
+
+div.talk-speaker-info {
+  width:100%;
+}
+div.talk-speaker-twitter {
+  float:left;
+  width:50%;
+}
+div.talk-speaker-github {
+  float:left;
+  width:50%;
+}
+div.render-container {
+  text-align:center;
+  padding-bottom:25px;
+}
+blockquote {
+  font-family:Inconsolata;
+}
+div.talk-notes {
+  padding-bottom:15px;
+}
+
+.hide, .clearfix.hide { display: none; visibility:hidden;}
+
+body.windowsneedsantialiasing #main {font-family:Helvetica,Arial,sans-serif;}
+
+#main p, #main li { font-family: verdana, sans-serif;}
+.antiantialias {
+  -webkit-transition: all 100000.0s linear;
+  -moz-transition: all 100000.0s linear;
+  -o-transition: all 100000.0s linear;
+  -transition: all 100000.0s linear;
+  -webkit-transform: translate(0px, 1px);
+  -moz-transform: translate(0px, 1px);
+  -o-transform: translate(0px, 1px);
+  transform: translate(0px, 1px);
+  
+  -webkit-font-smoothing: none;
+}
+.fs { margin-bottom: 24px;}
+
+
+.speaker { display: block;  border-bottom: 1px dotted #333; padding: 12px;}
+.speaker .name { margin-left: 125px; font-size: 26px;margin-bottom: 6px; font-weight: bold;;}
+.speaker img, .speaker canvas { float: left; height: 100px; width: 100px;}
+.speaker .title { margin-left: 125px; font-size: 22px; margin-bottom: 6px;}
+.speaker .proposal { margin-left: 125px; font-size: 16px;}
+.speaker.duo img, .speaker.duo canvas { margin-right: 25px;}
+.speaker.duo .name, .speaker.duo .title, .speaker.duo .proposal { margin-left: 0px;}
+.speaker.duo .name { margin-top: 6px;}
+
+
+p.desc { margin: 12px 0px; }
+
+.sponsor_ad {
+margin-bottom: 20px
+}
+
+/*.se { height: 220px;}*/
+
+
+.sponsor { margin-bottom: 24px;}
+
+.sponsor .logo { text-align: center; margin-bottom: 12px;}
+
+
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+
+.clearfix {display: inline-block;}  /* for IE/Mac */
+
+.sub { margin: 4px 0px;}
+
+.time { width: 75px; padding:4px; }
+.track_a, .track_b { width: 298px;}
+.scheduleheader th { font-weight: bold; background: #333; color: white; padding:4px; }
+table.schedule td { border-bottom: 1px solid #eee; vertical-align: top; }
+table.schedule .track_a {padding: 4px;}
+table.schedule { cell-spacing:0px; cell-padding:0px; border-collapse: collapse;}
+
+table.schedule .title { font-weight: bold; }
+
+.track_b .tb { height: 60px; padding: 4px; border-left: 1px solid #eee}
+.track_b .tb.top { border-bottom: 1px solid #eee; }
+tr.break td { height: 75px; background: #efefef; padding:4px} 
+
+.party { font-size: 125%; padding: 4px 8px 8px; margin: 12px 0px; background: #efefef; border-top: 4px solid #ff40ff;}
+.party p { margin: 0px; padding: 0px;}

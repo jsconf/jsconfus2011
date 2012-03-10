@@ -1,0 +1,25 @@
+{
+  "track_a":{
+    "monday": [
+      {"type": "break", "begin": "8:00", "title": "Breakfast and Registration", "name": ""},
+      {"type": "break", "begin": "9:00", "title": "Welcome to the JSConf Trail", "name": "JSConf Staff"},
+      {"type": "speaker", "begin": "9:20", "title": "Bytes and Blobs", "name": "David Flanagan"},
+      {"type": "speaker", "begin": "10:00", "title": "Conference Wifi Redux", "name": "Malte Ubl and Meno Abels"},
+      {"type": "break", "begin": "10:40", "title": "Intermission Entertainment With Popcorn.js", "name": "Rick Waldron"},
+      {"type": "speaker", "begin": "11:00", "title": "Run your JS everywhere, with Jellyfish", "name": "Adam Christian"},
+      {"type": "speaker", "begin": "11:40", "title": "Fighting Crime and Kicking Apps With Batman.js", "name": "Nick Small"},
+      {"type": "break", "begin": "12:20", "title": "Lunch", "name": ""}
+    ],
+    "tuesday": [
+    ]
+  },
+  "track_b":{
+    "monday": [
+    
+    ],
+    "tuesday": [
+    ]
+  }
+  
+}
+
